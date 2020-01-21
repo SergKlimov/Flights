@@ -19,14 +19,15 @@ class DestinationRepositoryImpl @Inject constructor(
         private const val ARRIVAL_KEY = "ARRIVAL_KEY"
 
         private val DEFAULT_DEPARTURE = Destination(
+            city = "Санкт-Петербург",
+            location = Location(lat = 59.7998772, lon = 30.2733421),
+            iata = "LED"
+        )
+        private val DEFAULT_ARRIVAL = Destination(
+
             city = "Москва",
             location = Location(lat = 55.6, lon = 37.21667),
             iata = "VKO"
-        )
-        private val DEFAULT_ARRIVAL = Destination(
-            city = "Сидней",
-            location = Location(lat = -33.86785, lon = 151.207323),
-            iata = "SYD"
         )
     }
 
@@ -35,14 +36,14 @@ class DestinationRepositoryImpl @Inject constructor(
     private val departureObservable by lazy {
         rxSharedPreferences.getObject(
             DEPARTURE_KEY,
-            DEFAULT_DEPARTURE, destinationConverter)
-            .asObservable()
+            DEFAULT_DEPARTURE, destinationConverter
+        ).asObservable()
     }
     private val arrivalObservable by lazy {
         rxSharedPreferences.getObject(
             ARRIVAL_KEY,
-            DEFAULT_ARRIVAL, destinationConverter)
-            .asObservable()
+            DEFAULT_ARRIVAL, destinationConverter
+        ).asObservable()
     }
 
     override fun setDeparture(destination: Destination) {

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.flights.presentation.di.ViewModelKey
 import com.example.flights.presentation.ui.home.HomeViewModel
 import com.example.flights.presentation.ui.pick_destination.PickDestinationViewModel
+import com.example.flights.presentation.ui.search_tickets.SearchTicketsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -20,5 +21,10 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(PickDestinationViewModel::class)
     fun bindPickDestinationViewModel(viewModel: PickDestinationViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchTicketsViewModel::class)
+    fun bindSearchTicketsViewModel(viewModel: SearchTicketsViewModel): ViewModel
 
 }

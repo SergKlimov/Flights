@@ -8,14 +8,22 @@ import android.widget.TextView
 import com.example.flights.R
 import com.example.flights.presentation.base.BaseFragment
 import com.example.flights.presentation.extension.getColor
-import com.example.flights.presentation.extension.pxToDp
+import com.example.flights.presentation.extension.getViewModel
+import com.example.flights.presentation.extension.observe
 import com.example.flights.presentation.utils.map.CubicCurveEvaluator
 import com.example.flights.presentation.utils.map.GoogleProjection
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.Dot
+import com.google.android.gms.maps.model.Gap
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.android.SphericalUtil
 import com.google.maps.android.ui.IconGenerator
 import java.util.concurrent.TimeUnit
@@ -25,12 +33,15 @@ class SearchTicketsFragment : BaseFragment(R.layout.fragment_map), OnMapReadyCal
     companion object {
         private const val CURRENT_FRACTION_KEY = "CURRENT_FRACTION_KEY"
         private const val PLANE_ICON_ANGLE_OFFSET = 90
-        private const val CAMERA_BOUNDS_PADDING_PX = 24
+        private const val PATH_POLYLINE_GAP_PX = 20f
+        private const val PATH_POLYLINE_WIDTH_PX = 15f
         private const val MAX_ANIMATION_FRACTION = 1f
         private val ANIMATION_DURATION = TimeUnit.SECONDS.toMillis(10)
 
         fun newInstance() = SearchTicketsFragment()
     }
+
+    private val viewModel by lazy { getViewModel(SearchTicketsViewModel::class.java) }
 
     private val projection = GoogleProjection()
 
@@ -53,6 +64,8 @@ class SearchTicketsFragment : BaseFragment(R.layout.fragment_map), OnMapReadyCal
             currentFraction = savedInstanceState.getFloat(CURRENT_FRACTION_KEY)
             fromSavedState = true
         }
+
+        observe(viewModel.getErrorEvent(), this::onErrorEvent)
 
         mapView.getMapAsync(this)
     }
@@ -90,6 +103,17 @@ class SearchTicketsFragment : BaseFragment(R.layout.fragment_map), OnMapReadyCal
 
     override fun onMapReady(googleMap: GoogleMap) {
         this.googleMap = googleMap
+
+        observe(viewModel.getMapDataLiveData()) { data ->
+            cubicCurveEvaluator = CubicCurveEvaluator(data.controlPoints)
+
+            initializeCamera(data)
+            initializeMarkers(data)
+            initializePath(data.pathLatLng)
+            animate()
+        }
+
+        viewModel.onMapReady(projection)
     }
 
     private fun initializeCamera(mapData: MapData) {
@@ -98,19 +122,23 @@ class SearchTicketsFragment : BaseFragment(R.layout.fragment_map), OnMapReadyCal
             val departureLatLng = mapData.pathLatLng.first()
             val arrivalLatLng = mapData.pathLatLng.last()
 
+            val width = resources.displayMetrics.widthPixels
+            val height = resources.displayMetrics.heightPixels
+            val padding = (width * 0.15).toInt() // offset from edges of the map - 15% of screen
+
             val bounds = LatLngBounds.builder()
                 .include(departureLatLng)
                 .include(arrivalLatLng)
                 .build()
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, CAMERA_BOUNDS_PADDING_PX.pxToDp))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding))
         }
     }
 
     private fun initializePath(path: List<LatLng>) {
         val pathBezier = PolylineOptions()
-            .pattern(listOf(Dot(), Gap(20f)))
+            .pattern(listOf(Dot(), Gap(PATH_POLYLINE_GAP_PX)))
             .color(getColor(R.color.colorMapPath))
-            .width(15f)
+            .width(PATH_POLYLINE_WIDTH_PX)
             .addAll(path)
 
         googleMap.addPolyline(pathBezier)

@@ -60,6 +60,7 @@
     </style>
 
     <style name="PinText">
+        <item name="android:gravity">center</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">16sp</item>
