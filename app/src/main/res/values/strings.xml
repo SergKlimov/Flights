@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Flights</string>
 
+    <string name="global_error_something_went_wrong">Что-то пошло не так</string>
+
     <string name="fragment_home_departure">Вылет из</string>
     <string name="fragment_home_arrival">Прилёт в</string>
     <string name="fragment_home_search">Поиск</string>
+    <string name="fragment_home_error_same_destinations">Лучше вызвать такси</string>
+
 </resources>

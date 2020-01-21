@@ -31,6 +31,8 @@ ext {
     versions = [
             androidxKtx        : '1.1.0',
             appcompat          : '1.1.0',
+            lifecycle          : '2.1.0',
+            material           : '1.0.0',
             cardview           : '1.0.0',
             constraintlayout   : '2.0.0-beta4',
             dagger             : '2.16',

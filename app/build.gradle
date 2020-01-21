@@ -27,7 +27,9 @@ dependencies {
             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             "androidx.appcompat:appcompat:$versions.appcompat",
             "androidx.core:core-ktx:$versions.androidxKtx",
+            "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
 
+            "com.google.android.material:material:$versions.material",
             "androidx.cardview:cardview:$versions.cardview",
             "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
 
