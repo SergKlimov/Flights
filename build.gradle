@@ -26,3 +26,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    versions = [
+            androidxKtx        : '1.1.0',
+            appcompat          : '1.1.0',
+            dagger             : '2.16',
+            cicerone           : '5.0.0'
+    ]
+}
