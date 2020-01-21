@@ -1,9 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_home_background">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        app:cardBackgroundColor="@android:color/white">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/fragment_home_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@id/fragment_home_barrier"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/fragment_home_button_departure"
+                style="@style/Destination.Button"
+                app:constraint_referenced_ids="fragment_home_text_view_departure_title, fragment_home_text_view_departure_iata, fragment_home_text_view_departure_city"
+                app:layout_constraintEnd_toStartOf="@id/fragment_home_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_home_text_view_departure_title"
+                style="@style/Destination.TextView.Title"
+                android:text="@string/fragment_home_departure"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/fragment_home_text_view_departure_iata"
+                style="@style/Destination.TextView.Iata"
+                tools:ignore="MissingConstraints"
+                tools:text="MOW" />
+
+            <TextView
+                android:id="@+id/fragment_home_text_view_departure_city"
+                style="@style/Destination.TextView.City"
+                tools:ignore="MissingConstraints"
+                tools:text="Moscow" />
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/fragment_home_button_arrival"
+                style="@style/Destination.Button"
+                app:constraint_referenced_ids="fragment_home_text_view_arrival_title, fragment_home_text_view_arrival_iata, fragment_home_text_view_arrival_city"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/fragment_home_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_home_text_view_arrival_title"
+                style="@style/Destination.TextView.Title"
+                android:text="@string/fragment_home_arrival"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/fragment_home_text_view_arrival_iata"
+                style="@style/Destination.TextView.Iata"
+                tools:ignore="MissingConstraints"
+                tools:text="LED" />
+
+            <TextView
+                android:id="@+id/fragment_home_text_view_arrival_city"
+                style="@style/Destination.TextView.City"
+                tools:ignore="MissingConstraints"
+                tools:text="Saint Petersburg" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/fragment_home_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="fragment_home_button_departure, fragment_home_button_arrival" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_home_button_search"
+                style="@style/SearchTicketsButton"
+                android:text="@string/fragment_home_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_home_barrier"
+                app:layout_constraintWidth_percent="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

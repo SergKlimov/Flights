@@ -28,6 +28,9 @@ dependencies {
             "androidx.appcompat:appcompat:$versions.appcompat",
             "androidx.core:core-ktx:$versions.androidxKtx",
 
+            "androidx.cardview:cardview:$versions.cardview",
+            "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
+
             // Dagger
             "com.google.dagger:dagger:$versions.dagger",
 

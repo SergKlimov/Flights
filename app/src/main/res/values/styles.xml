@@ -9,4 +9,50 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Destination">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Destination.TextView">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="Destination.Button">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:padding">16dp</item>
+        <item name="flow_verticalGap">8dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Destination.TextView.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Destination.TextView.Iata">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Destination.TextView.City">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="SearchTicketsButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>
