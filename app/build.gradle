@@ -31,15 +31,27 @@ dependencies {
             "androidx.cardview:cardview:$versions.cardview",
             "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
 
+            // Rx
+            "io.reactivex.rxjava2:rxjava:$versions.rxjava2",
+            "io.reactivex.rxjava2:rxandroid:$versions.rxandroid",
+
             // Dagger
             "com.google.dagger:dagger:$versions.dagger",
 
             // Navigation
             "ru.terrakok.cicerone:cicerone:$versions.cicerone",
+
+            // Moshi
+            "com.squareup.moshi:moshi-kotlin:$versions.moshi",
+            "com.squareup.moshi:moshi-adapters:$versions.moshi",
+
+            // Shared Prefs
+            "com.f2prateek.rx.preferences2:rx-preferences:$versions.rxPreferences"
     )
 
     kapt(
-            "com.google.dagger:dagger-compiler:$versions.dagger"
+            "com.google.dagger:dagger-compiler:$versions.dagger",
+            "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi"
     )
 
 }

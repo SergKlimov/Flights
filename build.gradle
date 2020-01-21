@@ -34,6 +34,10 @@ ext {
             cardview           : '1.0.0',
             constraintlayout   : '2.0.0-beta4',
             dagger             : '2.16',
-            cicerone           : '5.0.0'
+            cicerone           : '5.0.0',
+            rxjava2            : '2.1.16',
+            rxandroid          : '2.1.1',
+            moshi              : '1.9.2',
+            rxPreferences      : '2.0.0',
     ]
 }
