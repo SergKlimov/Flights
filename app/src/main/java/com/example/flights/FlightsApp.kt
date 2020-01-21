@@ -13,7 +13,7 @@ class FlightsApp : Application(), ViewModelFactoryProvider {
     private val appComponentInternal: AppComponent by lazy {
         DaggerAppComponent.builder()
             .appModule(AppModule(applicationContext))
-            .networkModule(NetworkModule())
+            .networkModule(NetworkModule(BuildConfig.API_URL))
             .build()
     }
 

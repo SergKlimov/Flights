@@ -39,7 +39,9 @@ ext {
             cicerone           : '5.0.0',
             rxJava2            : '2.1.16',
             rxAndroid          : '2.1.1',
+            retrofit           : '2.7.1',
             moshi              : '1.9.2',
+            chuck              : '1.1.0',
             rxPreferences      : '2.0.0',
             adapterDelegates   : '4.2.0',
     ]
