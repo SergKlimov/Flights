@@ -2,5 +2,8 @@
 <resources>
 
     <dimen name="default_margin">16dp</dimen>
+    <dimen name="default_small_margin">8dp</dimen>
+
+    <dimen name="fragment_pick_destination_progress_bar_size">24dp</dimen>
 
 </resources>

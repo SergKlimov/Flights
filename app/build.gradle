@@ -25,17 +25,17 @@ dependencies {
     implementation(
             fileTree(dir: 'libs', include: ['*.jar']),
             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
-            "androidx.appcompat:appcompat:$versions.appcompat",
+            "androidx.appcompat:appcompat:$versions.appCompat",
             "androidx.core:core-ktx:$versions.androidxKtx",
             "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
 
             "com.google.android.material:material:$versions.material",
             "androidx.cardview:cardview:$versions.cardview",
-            "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
+            "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
 
             // Rx
-            "io.reactivex.rxjava2:rxjava:$versions.rxjava2",
-            "io.reactivex.rxjava2:rxandroid:$versions.rxandroid",
+            "io.reactivex.rxjava2:rxjava:$versions.rxJava2",
+            "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
 
             // Dagger
             "com.google.dagger:dagger:$versions.dagger",
@@ -48,7 +48,11 @@ dependencies {
             "com.squareup.moshi:moshi-adapters:$versions.moshi",
 
             // Shared Prefs
-            "com.f2prateek.rx.preferences2:rx-preferences:$versions.rxPreferences"
+            "com.f2prateek.rx.preferences2:rx-preferences:$versions.rxPreferences",
+
+            // Adapter for RecyclerView
+            "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:$versions.adapterDelegates",
+            "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:$versions.adapterDelegates",
     )
 
     kapt(

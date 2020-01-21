@@ -6,6 +6,7 @@ import com.example.flights.domain.interactor.HomeInteractor
 import com.example.flights.domain.model.Route
 import com.example.flights.presentation.exception.SameDestinationsException
 import com.example.flights.presentation.base.BaseViewModel
+import com.example.flights.presentation.navigation.Screens
 import com.example.flights.presentation.schedulers.SchedulersProvider
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -29,7 +30,7 @@ class HomeViewModel @Inject constructor(
     fun getRouteLiveData(): LiveData<Route> = route
 
     fun onPickDestinationClicked(isDeparture: Boolean) {
-
+        router.navigateTo(Screens.PickDestination(isDeparture))
     }
 
     fun onSearchClicked() {

@@ -8,4 +8,6 @@
     <string name="fragment_home_search">Поиск</string>
     <string name="fragment_home_error_same_destinations">Лучше вызвать такси</string>
 
+    <string name="fragment_pick_destination_hint">Введите направление</string>
+
 </resources>
