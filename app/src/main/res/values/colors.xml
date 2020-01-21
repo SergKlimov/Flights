@@ -5,4 +5,7 @@
     <color name="colorAccent">#FFBC00</color>
 
     <color name="colorHomeGradientStart">#00BCD4</color>
+
+    <color name="colorMapPinBackground">#B3FFBC00</color>
+    <color name="colorMapPath">#80000000</color>
 </resources>

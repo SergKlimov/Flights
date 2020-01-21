@@ -44,5 +44,7 @@ ext {
             chuck              : '1.1.0',
             rxPreferences      : '2.0.0',
             adapterDelegates   : '4.2.0',
+            maps               : '17.0.0',
+            mapsUtils          : '0.5',
     ]
 }

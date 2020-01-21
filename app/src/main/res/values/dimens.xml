@@ -6,4 +6,10 @@
 
     <dimen name="fragment_pick_destination_progress_bar_size">24dp</dimen>
 
+    <!-- even if it's the same as default_margin it's intended for other purposes-->
+    <dimen name="fragment_search_tickets_pin_corner_radius">16dp</dimen>
+    <dimen name="fragment_search_tickets_pin_stroke_width">1dp</dimen>
+    <dimen name="fragment_search_tickets_pin_horizontal_padding">16dp</dimen>
+    <dimen name="fragment_search_tickets_pin_vertical_padding">4dp</dimen>
+
 </resources>

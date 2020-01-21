@@ -40,7 +40,7 @@ class HomeViewModel @Inject constructor(
         if (departure == arrival) {
             errorEventInternal.setValue(SameDestinationsException())
         } else {
-
+            router.navigateTo(Screens.SearchTickets())
         }
     }
 

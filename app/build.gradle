@@ -68,6 +68,10 @@ dependencies {
             // Adapter for RecyclerView
             "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:$versions.adapterDelegates",
             "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:$versions.adapterDelegates",
+
+            // Google Maps
+            "com.google.android.gms:play-services-maps:$versions.maps",
+            "com.google.maps.android:android-maps-utils:$versions.mapsUtils",
     )
 
     kapt(
