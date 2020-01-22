@@ -23,14 +23,12 @@ class PickDestinationInteractor @Inject constructor(
         }
     }
 
-    private fun convertToDestinationList(cities: List<City>): List<Destination> = cities.map { city ->
-        if (city.iata.isNotEmpty()) {
+    private fun convertToDestinationList(cities: List<City>): List<Destination> = cities
+        .filter { it.iata.isNotEmpty() }
+        .map { city ->
             city.iata.distinct().map { iata ->
                 Destination(city.city, city.fullname, city.location, iata)
             }
-        } else {
-            listOf(Destination(city.city, city.fullname, city.location))
-        }
-    }.flatten()
+        }.flatten()
 
 }
